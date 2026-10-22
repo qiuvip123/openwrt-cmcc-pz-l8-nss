@@ -1,4 +1,4 @@
-# CMCC PZ-L8 — 带 QSDK NSS 硬件卸载的 OpenWrt
+
 
 **中文** | [English](README.en.md)
 
@@ -17,7 +17,9 @@
 | `*-squashfs-factory.ubi` | 从厂商固件强制 `sysupgrade -n -F`（对面用 `ubiformat` 写） |
 | `*-initramfs-uImage.itb` | 从内存启动，不碰 flash |
 
----
+---新增东芯 Dosilicon DS35M1GA-IB补丁（489）一起编进了这次构建 ——复旦和东芯两颗闪存的V2板子都能刷这套固件
+恩山大佬【龙卷风05】源地址
+https://www.right.com.cn/forum/forum.php?mod=viewthread&tid=8489716&highlight=pz%2Bl8
 
 ## 实机实测
 
@@ -30,9 +32,9 @@
   是 ARMv8。也没有能用的源码树：拿到什么就是什么，改不了，也编不出来。
 - **OpenWrt 官方镜像**内核新、是 64 位，但不支持 NSS。转发回到 Linux，DSA 路径上
   502 Mbit/s 就能把两个核跑满。
-- 而且**官方 25.12.x 的镜像连 WiFi 都起不来**。
+-而且**官方 25.12.x 的镜像连 WiFi 都起不来**。
   `target/linux/qualcommax/image/ipq50xx.mk` 里的 `Device/cmcc_pz-l8` 没有定义
-  `DEVICE_PACKAGES`（同一个文件里别的设备定义了 12 处），所以 ath11k 固件和这块
+  `设备包`（同一个文件里别的设备定义了 12 处），所以 ath11k 固件和这块
   板子的 board data 都不在镜像里，射频根本不会 probe。快照分支（r31246）是带的，
   本项目用 `feed/ipq-wifi-cmcc_pz-l8` 把它补回来。
 
