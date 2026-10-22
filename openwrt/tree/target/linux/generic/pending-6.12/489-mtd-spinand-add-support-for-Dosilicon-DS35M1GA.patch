@@ -162,8 +162,8 @@ index ce76f5c63..c50a43b44 100644
 --- a/include/linux/mtd/spinand.h
 +++ b/include/linux/mtd/spinand.h
 @@ -264,4 +264,5 @@ struct spinand_manufacturer {
-extern const struct spinand_manufacturer ato_spinand_manufacturer;
+ extern const struct spinand_manufacturer ato_spinand_manufacturer;
 +extern const struct spinand_manufacturer dosilicon_spinand_manufacturer;
-extern const struct spinand_manufacturer esmt_8c_spinand_manufacturer;
-extern const struct spinand_manufacturer esmt_c8_spinand_manufacturer;
-extern const struct spinand_manufacturer etron_spinand_manufacturer;
+ extern const struct spinand_manufacturer esmt_8c_spinand_manufacturer;
+ extern const struct spinand_manufacturer esmt_c8_spinand_manufacturer;
+ extern const struct spinand_manufacturer etron_spinand_manufacturer;
